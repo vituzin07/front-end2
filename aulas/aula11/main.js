@@ -24,5 +24,27 @@ function fazerLogin() {
       boasVindas.innerText = 'Email ou senha incorreto';
       boasVindas.style = "background-color: red; color: white";
     }
+  
   }); 
+}
+
+function registro(){
+  let emailcadastrado = document.getElementById('email').value;
+  let senhacadastrada = document.getElementById('senha').value;
+
+  const credenciaiscadastradas = {
+    email: emailcadastrado,
+    password: senhacadastrada
+  }
+
+  fetch('https://reqres.in/api/register', {
+    method: 'POST', 
+    body: JSON.stringify(credenciaiscadastradas),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  }).then((reponse) => reponse.json())
+  .then((json) => {
+
+  })
 }
