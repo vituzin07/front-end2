@@ -45,6 +45,14 @@ function registro(){
     },
   }).then((reponse) => reponse.json())
   .then((json) => {
+    let cadastro = document.getElementById("cadastro");
+    
+    if(json.token){
+      cadastro.innerText = "Esse usuário foi cadastrado" + emailcadastrado;
+      cadastro.style = "background-color: green; color: white";
+    } else{
+      cadastro.innerText = "Usuário não cadastrado"
+    }
 
   })
 }
